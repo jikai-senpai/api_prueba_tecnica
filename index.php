@@ -1,3 +1,4 @@
 <?php
-echo "desde dcoker";
+require './config/config.php';
+
 ?>
