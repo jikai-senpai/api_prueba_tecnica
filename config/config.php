@@ -13,7 +13,7 @@ function loadEnv($path)
             continue;
         }
 
-        // Divide la línea en clave y valor
+        // Divide la linea en clave y valor
         list($key, $value) = explode('=', $line, 2);
 
         // Elimina espacios en blanco y comillas
@@ -29,8 +29,3 @@ function loadEnv($path)
 loadEnv(__DIR__ . '/../.env');
 
 // Acceder a las variables de entorno
-getenv('MYSQL_ROOT_PASSWORD');
-getenv('MYSQL_DATABASE');
-getenv('MYSQL_USER');
-getenv('MYSQL_PASSWORD');
-getenv('MYSQL_HOST');

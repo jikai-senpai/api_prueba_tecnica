@@ -11,6 +11,8 @@ services:
     volumes:
       - ./db_data_mysql:/var/lib/mysql
     restart: always
+    networks:
+      - my_network
 
   php:
     container_name: php_produccion
@@ -22,3 +24,9 @@ services:
     build: .
     volumes:
       - .:/var/www/html # live reload
+    networks:
+      - my_network
+
+networks:
+    my_network:
+        driver: bridge
