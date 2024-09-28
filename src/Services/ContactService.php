@@ -17,6 +17,7 @@ class ContactService {
 
     public function addContact($data)
     {
+        $data['estado'] = true;
         $this->contactoRepository->createContact($data);
     }
 

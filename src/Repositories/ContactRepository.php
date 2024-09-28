@@ -18,12 +18,12 @@ class ContactRepository {
     }
 
     public function createContact($contact) {
-        $query = "INSERT INTO contactos (nombre, apellido, email) VALUES (:nombre, :apellido, :email, :estado)";
+        $query = "INSERT INTO contactos (nombre, apellido, email, estado) VALUES (:nombre, :apellido, :email, :estado)";
         $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':nombre', $contact->nombre);
-        $stmt->bindParam(':apellido', $contact->apellido);
-        $stmt->bindParam(':email', $contact->email);
-        $stmt->bindParam(':estado', $contact->estado);
+        $stmt->bindParam(':nombre', $contact['nombre']);
+        $stmt->bindParam(':apellido', $contact['apellido']);
+        $stmt->bindParam(':email', $contact['email']);
+        $stmt->bindParam(':estado', $contact['estado']);
         return $stmt->execute();
     }
 }
