@@ -11,14 +11,18 @@ class ContactService {
         $this->telefonoRepository = new TelephoneRepository();
     }
 
-    public function allContacts() {
+    public function getAllContacts() {
         return $this->contactoRepository->getAllContacts();
     }
 
-    public function addContact($data)
+    public function createContact($data)
     {
         $data['estado'] = true;
         $this->contactoRepository->createContact($data);
+    }
+
+    public function deleteContact($id) {
+        $this->contactoRepository->deleteContact($id);
     }
 
     public function addTelefonos($id_contacto, $telefonos) {

@@ -7,10 +7,10 @@ $controller = new ContactController();
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
-        $controller->listContacts();
+        $controller->getAllContacts();
         break;
     case 'POST':
-        $controller->saveContact();
+        $controller->createContact();
         break;
     default:
         http_response_code(405);

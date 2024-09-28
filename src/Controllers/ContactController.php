@@ -15,13 +15,13 @@ class ContactController
         $this->validator = new ContactValidator();
     }
 
-    public function listContacts()
+    public function getAllContacts()
     {
-        $contacts = $this->service->allContacts();
+        $contacts = $this->service->getAllContacts();
         echo json_encode($contacts);
     }
 
-    public function saveContact()
+    public function createContact()
     {
         $data = json_decode(file_get_contents('php://input'), true);
 
@@ -32,7 +32,7 @@ class ContactController
             return;
         }
 
-        $this->service->addContact($data);
+        $this->service->createContact($data);
         echo json_encode(['message' => 'Contacto agregado exitosamente']);
     }
 }

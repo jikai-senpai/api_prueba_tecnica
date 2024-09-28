@@ -17,6 +17,7 @@ class ContactRepository {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // Crear un contacto
     public function createContact($contact) {
         $query = "INSERT INTO contactos (nombre, apellido, email, estado) VALUES (:nombre, :apellido, :email, :estado)";
         $stmt = $this->db->prepare($query);
@@ -24,6 +25,13 @@ class ContactRepository {
         $stmt->bindParam(':apellido', $contact['apellido']);
         $stmt->bindParam(':email', $contact['email']);
         $stmt->bindParam(':estado', $contact['estado']);
+        return $stmt->execute();
+    }
+
+    public function deleteContact() {
+        $query = "UPDATE contactos SET estado = 0 WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
 }
