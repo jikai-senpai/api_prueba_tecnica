@@ -1,27 +1,29 @@
 <?php
 require_once __DIR__ . '/../Repositories/ContactRepository.php';
+require_once __DIR__ . '/../Repositories/TelefonoRepositry.php';
 
-class ContactService
-{
-    private $repository;
+class ContactService {
+    private $contactoRepository;
+    private $telefonoRepository;
 
-    public function __construct()
-    {
-        $this->repository = new ContactRepository();
+    public function __construct() {
+        $this->contactoRepository = new ContactRepository();
+        $this->telefonoRepository = new TelephoneRepository();
     }
 
-    public function getContacts()
-    {
-        return $this->repository->getAll();
+    public function allContacts() {
+        return $this->contactoRepository->getAllContacts();
     }
 
-    public function createContact($data)
+    public function addContact($data)
     {
-        $this->repository->save($data);
+        $this->contactoRepository->createContact($data);
     }
 
-    public function deleteContact($id)
-    {
-        $this->repository->delete($id);
+    public function addTelefonos($id_contacto, $telefonos) {
+        foreach ($telefonos as $numero) {
+            $telefono = new Telefono(null, $numero, $id_contacto);
+            $this->telefonoRepository->createTelephone($telefono);
+        }
     }
 }

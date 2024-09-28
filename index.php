@@ -10,10 +10,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $controller->listContacts();
         break;
     case 'POST':
-        $controller->addContact();
-        break;
-    case 'DELETE':
-        $controller->deleteContact();
+        $controller->saveContact();
         break;
     default:
         http_response_code(405);
