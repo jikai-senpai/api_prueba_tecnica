@@ -18,8 +18,8 @@ class ContactValidator
         }
 
         // Validar que el email no este vacio
-        if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-            $errors[] = 'El email es requerido y debe ser válido';
+        if (empty($data['email'])) {
+            $errors[] = 'El email es requerido';
         }
 
         return $errors;
