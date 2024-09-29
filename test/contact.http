@@ -1,0 +1,23 @@
+# Metodo para crear un contacto
+POST http://localhost:9090/api-rest/contact.php
+Content-Type: application/json
+
+{
+  "nombre": "Fulano",
+  "apellido": "Fulanin",
+  "email": "soyfulano@example.com"
+}
+
+###
+# Metodo para ver los contactos
+GET http://localhost:9090/api-rest/contact.php
+Accept: application/json
+
+###
+# Metodo para eliminar un contacto
+POST http://localhost:9090/api-rest/contact.php?action=delete
+Content-Type: application/json
+
+{
+  "id": 1
+}

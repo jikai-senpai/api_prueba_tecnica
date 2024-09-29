@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/src/Controllers/ContactController.php';
-require_once __DIR__ . '/config/config.php';
+require_once __DIR__ . '/../src/Controllers/ContactController.php';
+require_once __DIR__ . '/../config/config.php';
 
 //Manejo basico de las rutas basado en el metodo de la peticion
 $controller = new ContactController();
@@ -26,6 +26,3 @@ switch ($_SERVER['REQUEST_METHOD']) {
         echo json_encode(['message' => 'Método no permitido']);
         break;
 }
-
-// Metodo delete
-// http://localhost:9090/index.php?action=delete
