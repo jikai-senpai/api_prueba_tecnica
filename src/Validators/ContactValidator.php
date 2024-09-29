@@ -23,15 +23,21 @@ class ContactValidator
         }
 
         // Validar que el o los telefonos no esten vacios
-        if (!empty($data['telefonos']) && !is_array($data['telefonos'])) {
-            $errors[] = 'Los teléfonos deben ser un arreglo de números';
+        if (empty($data['telefonos']) || !is_array($data['telefonos'])) {
+            $errors[] = 'Los telefonos deben ser un arreglo de numeros';
+        } else {
+            foreach ($data['telefonos'] as $telephone) {
+                if (!is_numeric($telephone)) {
+                    $errors[] = 'Cada telefono debe ser en numero';
+                    break;
+                }
+            }
         }
 
         return $errors;
     }
 
-    public function validateDelete($data)
-    {
+    public function validateDelete($data) {
         $errors = [];
 
         // Validar que el id no este vacio

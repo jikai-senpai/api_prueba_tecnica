@@ -4,10 +4,10 @@ Content-Type: application/json
 
 {
   "nombre": "Jeyson",
-  "apellido": "Pérez",
+  "apellido": "Perez",
   "email": "jikaiwork@gmail.com",
   "telefonos": [
-    "1231231234"
+    "8091231234"
   ]
 }
 
@@ -22,5 +22,5 @@ POST http://localhost:9090/api-rest/contact.php?action=delete
 Content-Type: application/json
 
 {
-  "id": 15
+  "id": 1
 }
