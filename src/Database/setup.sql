@@ -8,7 +8,7 @@ CREATE TABLE
     `nombre`             varchar(255) NOT NULL,
     `apellido`           varchar(255) NOT NULL,
     `email`              varchar(255) NOT NULL,
-    `estado`             varchar(255) NOT NULL,
+    `estado`             boolean DEFAULT TRUE     NOT NULL,
     PRIMARY KEY (`id`)
 );
 
@@ -19,5 +19,5 @@ CREATE TABLE
     `id`            int         NOT NULL AUTO_INCREMENT,
     `numero`        varchar(20) NOT NULL,
     `id_contacto`   int         NOT NULL,
-    PRIMARY KEY (`ID`)
+    PRIMARY KEY (`id`)
 );

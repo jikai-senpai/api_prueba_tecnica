@@ -25,7 +25,6 @@ class ContactService {
 
     // Metodo para crear un contacto
     public function createContact($data) {
-        $data['estado'] = true; // Por defecto, el contacto se crea activo
         $contactId = $this->contactoRepository->createContact($data);
 
         // Crear los telefonos asociados al contacto
