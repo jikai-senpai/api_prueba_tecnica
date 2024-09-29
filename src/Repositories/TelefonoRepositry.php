@@ -10,11 +10,11 @@ class TelephoneRepository {
     }
 
     // Crear un telefono
-    public function createTelephone($telefono) {
+    public function createTelephone($telephone) {
         $query = "INSERT INTO telefonos (numero, id_contacto) VALUES (:numero, :id_contacto)";
         $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':numero', $telefono->numero);
-        $stmt->bindParam(':id_contacto', $telefono->id_contacto);
+        $stmt->bindParam(':numero', $telephone['numero']);
+        $stmt->bindParam(':id_contacto', $telephone['id_contacto']);
         return $stmt->execute();
     }
 
