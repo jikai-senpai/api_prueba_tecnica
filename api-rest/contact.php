@@ -12,7 +12,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
 
     case 'POST':
-        // Verifica si se ha pasado el parámetro 'action' para determinar si es una eliminación
+        // Verifica si se ha pasado el parametro 'action' para determinar si es una eliminación
         if (isset($_GET['action']) && $_GET['action'] === 'delete') {
             $controller->deleteContact();
         } else {

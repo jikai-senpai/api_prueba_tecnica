@@ -11,6 +11,7 @@ class ContactService {
         $this->telefonoRepository = new TelephoneRepository();
     }
 
+    // Metodo para obtener todos los contactos
     public function getAllContacts() {
         $contacts = $this->contactoRepository->getAllContacts();
 
@@ -22,10 +23,12 @@ class ContactService {
         return $contacts;
     }
 
+    // Metodo para crear un contacto
     public function createContact($data) {
-        $data['estado'] = true;
+        $data['estado'] = true; // Por defecto, el contacto se crea activo
         $contactId = $this->contactoRepository->createContact($data);
 
+        // Crear los telefonos asociados al contacto
         if (!empty($data['telefonos'])){
             foreach ($data['telefonos'] as $telefono) {
                 $this->telefonoRepository->createTelephone($telefono, $contactId);
@@ -33,7 +36,9 @@ class ContactService {
         }
     }
 
+    // Metodo para eliminar un contacto
     public function deleteContact($id) {
+        // Verificar si el contacto existe y está activo
         $contact = $this->contactoRepository->getContactById($id);
         if (!$contact) {
             return false;
@@ -41,14 +46,8 @@ class ContactService {
         elseif ($contact['estado'] == 0) {
             return false;
         }
+
         $this->contactoRepository->deleteContact($id);
         return true;
-    }
-
-    public function addTelefonos($id_contacto, $telefonos) {
-        foreach ($telefonos as $numero) {
-            $telefono = new Telefono(null, $numero, $id_contacto);
-            $this->telefonoRepository->createTelephone($telefono);
-        }
     }
 }

@@ -13,16 +13,19 @@ class ContactController
         $this->validator = new ContactValidator();
     }
 
+    // Metodo para obtener todos los contactos
     public function getAllContacts()
     {
         $contacts = $this->service->getAllContacts();
         echo json_encode($contacts);
     }
 
+    // Metodo para crear un contacto
     public function createContact()
     {
         $data = json_decode(file_get_contents('php://input'), true);
 
+        // Validar los datos recibidos
         $errors = $this->validator->validateCreate($data);
         if (!empty($errors)) {
             http_response_code(400);
@@ -34,10 +37,12 @@ class ContactController
         echo json_encode(['message' => 'Contacto agregado exitosamente']);
     }
 
+    // Metodo para eliminar un contacto
     public function deleteContact()
     {
         $data = json_decode(file_get_contents('php://input'), true);
 
+        // Validar los datos recibidos
         $errors = $this->validator->validateDelete($data);
         if (!empty($errors)) {
             http_response_code(400);
