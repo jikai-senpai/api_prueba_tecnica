@@ -11,7 +11,7 @@ class ContactRepository {
 
     // Obtener todos los contactos
     public function getAllContacts() {
-        $query = "SELECT * FROM contactos";
+        $query = "SELECT * FROM contactos WHERE estado = 1";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
