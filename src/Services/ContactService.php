@@ -26,6 +26,9 @@ class ContactService {
         if (!$contact) {
             return false;
         }
+        elseif ($contact['estado'] == 0) {
+            return false;
+        }
         $this->contactoRepository->deleteContact($id);
         return true;
     }
