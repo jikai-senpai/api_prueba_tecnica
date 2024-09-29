@@ -1,18 +1,23 @@
+USE PRUEBA_TECNICA;
+
 -- Tabla contactos
-CREATE TABLE contactos (
-                           id INT AUTO_INCREMENT PRIMARY KEY,
-                           nombre VARCHAR(100) NOT NULL,
-                           apellido VARCHAR(100) NOT NULL,
-                           email VARCHAR(150) NOT NULL,
-                           estado BOOLEAN DEFAULT TRUE,
-                           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE
+    `contactos`
+(
+    `id`                 int          NOT NULL AUTO_INCREMENT,
+    `nombre`             varchar(255) NOT NULL,
+    `apellido`           varchar(255) NOT NULL,
+    `email`              varchar(255) NOT NULL,
+    `estado`             varchar(255) NOT NULL,
+    PRIMARY KEY (`id`)
 );
 
 -- Tabla telefonos
-CREATE TABLE telefonos (
-                           id INT AUTO_INCREMENT PRIMARY KEY,
-                           numero VARCHAR(20) NOT NULL,
-                           id_contacto INT,
-                           estado BOOLEAN DEFAULT TRUE,
-                           FOREIGN KEY (id_contacto) REFERENCES contactos(id) ON DELETE CASCADE
+CREATE TABLE
+    `telefonos`
+(
+    `id`            int         NOT NULL AUTO_INCREMENT,
+    `numero`        varchar(20) NOT NULL,
+    `id_contacto`   int         NOT NULL,
+    PRIMARY KEY (`ID`)
 );

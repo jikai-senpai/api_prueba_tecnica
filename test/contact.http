@@ -3,11 +3,11 @@ POST http://localhost:9090/api-rest/contact.php
 Content-Type: application/json
 
 {
-  "nombre": "Juan",
+  "nombre": "Jeyson",
   "apellido": "Pérez",
-  "email": "juan.perez@example.com",
+  "email": "jikaiwork@gmail.com",
   "telefonos": [
-    "123456789"
+    "1231231234"
   ]
 }
 
