@@ -1,8 +1,6 @@
 <?php
-
 require_once __DIR__ . '/../Services/ContactService.php';
 require_once __DIR__ . '/../Validators/ContactValidator.php';
-
 
 class ContactController
 {
@@ -34,5 +32,12 @@ class ContactController
 
         $this->service->createContact($data);
         echo json_encode(['message' => 'Contacto agregado exitosamente']);
+    }
+
+    public function deleteContact()
+    {
+        $id = $_GET['id'];
+        $this->service->deleteContact($id);
+        echo json_encode(['message' => 'Contacto eliminado exitosamente']);
     }
 }

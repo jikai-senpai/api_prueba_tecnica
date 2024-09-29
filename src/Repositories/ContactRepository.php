@@ -28,7 +28,7 @@ class ContactRepository {
         return $stmt->execute();
     }
 
-    public function deleteContact() {
+    public function deleteContact($id) {
         $query = "UPDATE contactos SET estado = 0 WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id);
