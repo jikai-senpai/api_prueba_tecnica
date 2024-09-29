@@ -12,13 +12,25 @@ class ContactService {
     }
 
     public function getAllContacts() {
-        return $this->contactoRepository->getAllContacts();
+        $contacts = $this->contactoRepository->getAllContacts();
+
+        // Para mostrar los teléfonos de cada contacto asociados
+        foreach ($contacts as &$contact) {
+            $contact['telefonos'] = $this->telefonoRepository->getAllTelephonesByContact($contact['id']);
+        }
+
+        return $contacts;
     }
 
-    public function createContact($data)
-    {
+    public function createContact($data) {
         $data['estado'] = true;
-        $this->contactoRepository->createContact($data);
+        $contactId = $this->contactoRepository->createContact($data);
+
+        if (!empty($data['telefonos'])){
+            foreach ($data['telefonos'] as $telefono) {
+                $this->telefonoRepository->createTelephone($telefono, $contactId);
+            }
+        }
     }
 
     public function deleteContact($id) {

@@ -22,6 +22,11 @@ class ContactValidator
             $errors[] = 'El email es requerido';
         }
 
+        // Validar que el o los telefonos no esten vacios
+        if (!empty($data['telefonos']) && !is_array($data['telefonos'])) {
+            $errors[] = 'Los teléfonos deben ser un arreglo de números';
+        }
+
         return $errors;
     }
 

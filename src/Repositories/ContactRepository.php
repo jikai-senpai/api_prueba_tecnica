@@ -27,14 +27,17 @@ class ContactRepository {
     }
 
     // Crear un contacto
-    public function createContact($contact) {
-        $query = "INSERT INTO contactos (nombre, apellido, email, estado) VALUES (:nombre, :apellido, :email, :estado)";
+    public function createContact($data) {
+        $query = "INSERT INTO contactos (nombre, apellido, email) VALUES (:nombre, :apellido, :email)";
         $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':nombre', $contact['nombre']);
-        $stmt->bindParam(':apellido', $contact['apellido']);
-        $stmt->bindParam(':email', $contact['email']);
-        $stmt->bindParam(':estado', $contact['estado']);
-        return $stmt->execute();
+        $stmt->execute([
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
+            'email' => $data['email']
+        ]);
+
+        // Devolver el ID del contacto recién creado
+        return $this->db->lastInsertId();
     }
 
     // Eliminar un contacto

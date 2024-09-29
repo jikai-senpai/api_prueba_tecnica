@@ -3,9 +3,12 @@ POST http://localhost:9090/api-rest/contact.php
 Content-Type: application/json
 
 {
-  "nombre": "Fulano",
-  "apellido": "Fulanin",
-  "email": "soyfulano@example.com"
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "email": "juan.perez@example.com",
+  "telefonos": [
+    "123456789"
+  ]
 }
 
 ###
@@ -19,5 +22,5 @@ POST http://localhost:9090/api-rest/contact.php?action=delete
 Content-Type: application/json
 
 {
-  "id": 1
+  "id": 15
 }
