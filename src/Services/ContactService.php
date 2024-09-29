@@ -22,7 +22,12 @@ class ContactService {
     }
 
     public function deleteContact($id) {
+        $contact = $this->contactoRepository->getContactById($id);
+        if (!$contact) {
+            return false;
+        }
         $this->contactoRepository->deleteContact($id);
+        return true;
     }
 
     public function addTelefonos($id_contacto, $telefonos) {

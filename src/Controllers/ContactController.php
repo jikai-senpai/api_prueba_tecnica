@@ -46,7 +46,12 @@ class ContactController
         }
 
         $id = $data['id'];
-        $this->service->deleteContact($id);
+        $deleted = $this->service->deleteContact($id);
+        if (!$deleted) {
+            http_response_code(404);
+            echo json_encode(['message' => 'Contacto no encontrado']);
+            return;
+        }
         echo json_encode(['message' => 'Contacto eliminado exitosamente']);
     }
 }

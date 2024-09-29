@@ -29,6 +29,7 @@ class ContactValidator
     {
         $errors = [];
 
+        // Validar que el id no este vacio
         if (empty($data['id'])) {
             $errors[] = 'El Id es requerido';
         }
