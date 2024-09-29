@@ -28,4 +28,4 @@ switch ($_SERVER['REQUEST_METHOD']) {
 }
 
 // Metodo delete
-// http://localhost:9090/index.php?action=delete&id=1
+// http://localhost:9090/index.php?action=delete

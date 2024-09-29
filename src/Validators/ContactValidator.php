@@ -2,7 +2,7 @@
 
 class ContactValidator
 {
-    public function validate($data)
+    public function validateCreate($data)
     {
         // Array para almacenar errores de validacion
         $errors = [];
@@ -20,6 +20,17 @@ class ContactValidator
         // Validar que el email no este vacio
         if (empty($data['email'])) {
             $errors[] = 'El email es requerido';
+        }
+
+        return $errors;
+    }
+
+    public function validateDelete($data)
+    {
+        $errors = [];
+
+        if (empty($data['id'])) {
+            $errors[] = 'El Id es requerido';
         }
 
         return $errors;

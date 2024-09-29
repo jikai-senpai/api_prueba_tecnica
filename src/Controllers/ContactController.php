@@ -23,7 +23,7 @@ class ContactController
     {
         $data = json_decode(file_get_contents('php://input'), true);
 
-        $errors = $this->validator->validate($data);
+        $errors = $this->validator->validateCreate($data);
         if (!empty($errors)) {
             http_response_code(400);
             echo json_encode(['errors' => $errors]);
@@ -36,7 +36,16 @@ class ContactController
 
     public function deleteContact()
     {
-        $id = $_GET['id'];
+        $data = json_decode(file_get_contents('php://input'), true);
+
+        $errors = $this->validator->validateDelete($data);
+        if (!empty($errors)) {
+            http_response_code(400);
+            echo json_encode(['errors' => $errors]);
+            return;
+        }
+
+        $id = $data['id'];
         $this->service->deleteContact($id);
         echo json_encode(['message' => 'Contacto eliminado exitosamente']);
     }
