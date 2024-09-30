@@ -10,7 +10,12 @@ services:
       - "3306:3306"
     volumes:
       - ./db_data_mysql:/var/lib/mysql
+      - ./docs/mysql-init:/docker-entrypoint-initdb.d  # Montar el directorio de inicialización
     restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     networks:
       - my_network
 
@@ -28,5 +33,5 @@ services:
       - my_network
 
 networks:
-    my_network:
-        driver: bridge
+  my_network:
+    driver: bridge
