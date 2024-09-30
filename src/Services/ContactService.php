@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../Repositories/ContactRepository.php';
-require_once __DIR__ . '/../Repositories/TelefonoRepositry.php';
+require_once __DIR__ . '/../Repositories/TelephoneRepository.php';
 
 class ContactService {
     private $contactoRepository;

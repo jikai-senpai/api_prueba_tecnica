@@ -1,4 +1,9 @@
 <?php
+require_once __DIR__ . '/../../utils/FormatApiResult.php';
+require_once __DIR__ . '/../../utils/GlobalVars.php';
+
+use Utils\ApiUtils;
+use Utils\GlobalVars;
 
 class ContactValidator
 {
@@ -9,26 +14,26 @@ class ContactValidator
 
         // Validar que el nombre no este vacio
         if (empty($data['nombre'])) {
-            $errors[] = 'El nombre es requerido';
+            $errors[] = ApiUtils::api_result(GlobalVars::STATUS_ERROR, null, 'El nombre es requerido');
         }
 
         // Validar que el apellido no este vacio
         if (empty($data['apellido'])) {
-            $errors[] = 'El apellido es requerido';
+            $errors[] = ApiUtils::api_result(GlobalVars::STATUS_ERROR, null, 'El apellido es requerido');
         }
 
         // Validar que el email no este vacio
         if (empty($data['email'])) {
-            $errors[] = 'El email es requerido';
+            $errors[] = ApiUtils::api_result(GlobalVars::STATUS_ERROR, null, 'El email es requerido');
         }
 
         // Validar que el o los telefonos no esten vacios
         if (empty($data['telefonos']) || !is_array($data['telefonos'])) {
-            $errors[] = 'Los telefonos deben ser un arreglo de numeros';
+            $errors[] = ApiUtils::api_result(GlobalVars::STATUS_ERROR, null, 'Los telefonos son requeridos');
         } else {
             foreach ($data['telefonos'] as $telephone) {
                 if (!is_numeric($telephone)) {
-                    $errors[] = 'Cada telefono debe ser en numero';
+                    $errors[] = ApiUtils::api_result(GlobalVars::STATUS_ERROR, null, 'Los telefonos deben ser numericos');
                     break;
                 }
             }
@@ -42,7 +47,7 @@ class ContactValidator
 
         // Validar que el id no este vacio
         if (empty($data['id'])) {
-            $errors[] = 'El Id es requerido';
+            $errors[] = ApiUtils::api_result(GlobalVars::STATUS_ERROR, null, 'El id es requerido');
         }
 
         return $errors;
