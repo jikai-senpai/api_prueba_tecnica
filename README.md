@@ -13,7 +13,7 @@ Este proyecto es una API REST (sin framework) para la gestión de contactos y su
      git clone
         ```
 
-## 🚀 Pasos para empezar
+## 🚀 Pasos para empezar (con Docker)
 
 1. **Instalar Docker** 🐳
     - Asegúrate de tener Docker instalado en tu sistema. Puedes descargarlo desde [aquí](https://www.docker.com/get-started).
