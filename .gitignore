@@ -1,2 +1,4 @@
-db_data_mysql/*
 .idea/*
+.env
+db_data_mysql/*
+logs/*
