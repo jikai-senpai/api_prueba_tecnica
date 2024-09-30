@@ -17,7 +17,7 @@ CREATE TABLE
     `telefonos`
 (
     `id`            int         NOT NULL AUTO_INCREMENT,
-    `numero`        varchar(20) NOT NULL,
+    `numero`        varchar(255) NOT NULL,
     `id_contacto`   int         NOT NULL,
     PRIMARY KEY (`id`)
 );
