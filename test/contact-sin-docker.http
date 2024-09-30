@@ -1,0 +1,26 @@
+# Metodo para crear un contacto
+POST http://localhost/api_prueba_tecnica-main/api-rest/contact.php
+Content-Type: application/json
+
+{
+  "nombre": "Jeyson",
+  "apellido": "Perez",
+  "email": "jikaiwork@gmail.com",
+  "telefonos": [
+    "8091231234"
+  ]
+}
+
+###
+# Metodo para ver los contactos
+GET http://localhost/api_prueba_tecnica-main/api-rest/contact.php
+Accept: application/json
+
+###
+# Metodo para eliminar un contacto
+POST http://localhost/api_prueba_tecnica-main/api-rest/contact.php?action=delete
+Content-Type: application/json
+
+{
+  "id": 1
+}
