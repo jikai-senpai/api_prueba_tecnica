@@ -1,0 +1,6 @@
+API_URL=http://localhost:9090/api-rest/contact.php
+MYSQL_ROOT_PASSWORD=
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+MYSQL_HOST=
