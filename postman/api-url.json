@@ -1,0 +1,94 @@
+{
+  "info": {
+    "_postman_id": "6f9980c5-497e-4c3a-b0de-ce1270dcea44",
+    "name": "api-rest contactos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30506707"
+  },
+  "item": [
+    {
+      "name": "Crear contacto",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Jeyson\",\r\n  \"apellido\": \"Perez\",\r\n  \"email\": \"jikaiwork@gmail.com\",\r\n  \"telefonos\": [\r\n    \"8091231234\"\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api-rest/contact.php",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api-rest",
+            "contact.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ver lista de contactos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api-rest/contact.php",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api-rest",
+            "contact.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar contacto",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api-rest/contact.php?action=delete",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api-rest",
+            "contact.php"
+          ],
+          "query": [
+            {
+              "key": "action",
+              "value": "delete"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
